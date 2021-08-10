@@ -1,3 +1,6 @@
+import menu from './menu.json';
+import menuCardTpl from './templates/menu-card.hbs';
+
 const Theme = {
   LIGHT: 'light-theme',
   DARK: 'dark-theme',
@@ -6,7 +9,10 @@ const Theme = {
 const THEME_STYLE_KEY = 'theme';
 const body = document.body;
 const switchToggle = document.querySelector('#theme-switch-toggle');
+const menuList = document.querySelector('.js-menu');
 const getItemLocalStorage = localStorage.getItem(THEME_STYLE_KEY);
+
+menuList.insertAdjacentHTML('beforeend', menuCardTpl(menu));
 
 switchToggle.addEventListener('input', changeThemeStyle);
 
